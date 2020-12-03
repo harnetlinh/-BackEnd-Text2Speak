@@ -37,13 +37,15 @@
   };
   
     exports.getAudio = (req,res)=>{
+      
         client.synthesizeSpeech(request)
         .then(async (response) => {
         // console.log(response);
         var test = response[0].audioContent;
         const audioContent = _.get(response[0], 'audioContent');
         var currentdate = new Date(); 
-        var datetime = "audio_" + currentdate.getDate() +
+         
+        var datetime = "audio_" +Math.random() + currentdate.getDate() +
           + (currentdate.getMonth()+1)  + 
           + currentdate.getFullYear() +  
           + currentdate.getHours() + 
